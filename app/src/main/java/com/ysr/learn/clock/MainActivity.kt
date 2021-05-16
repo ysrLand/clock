@@ -126,6 +126,6 @@ class MainActivity : AppCompatActivity() {
     private fun match(): Boolean {
         val inputHour = hourKeypadView.inputText.toIntOrNull() ?: -1
         val inputMinute = minuteKeypadView.inputText.toIntOrNull() ?: -1
-        return hour == inputHour && minute == inputMinute
+        return (hour == inputHour) && (minute == inputMinute)
     }
 }

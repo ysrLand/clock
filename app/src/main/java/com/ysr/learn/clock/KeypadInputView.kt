@@ -31,13 +31,15 @@ class KeypadInputView : ConstraintLayout {
         for (index in contents.indices) {
             keysView.addView(
                 View.inflate(context, R.layout.layout_key, null).apply {
-                    keyRootLayout.keyTextView.text = contents[index]
-                    keyRootLayout.keyTextView.setOnClickListener(listener)
-                    val params = GridLayout.LayoutParams(
-                        GridLayout.spec(index / columnCount, 1, 1f),
-                        GridLayout.spec(index % columnCount, 1, 1f)
-                    )
-                    keyRootLayout.layoutParams = params
+                    keyRootLayout.let {
+                        keyTextView.text = contents[index]
+                        keyTextView.setOnClickListener(listener)
+                        val params = GridLayout.LayoutParams(
+                            GridLayout.spec(index / columnCount, 1, 1f),
+                            GridLayout.spec(index % columnCount, 1, 1f)
+                        )
+                        layoutParams = params
+                    }
                 }
             )
         }
