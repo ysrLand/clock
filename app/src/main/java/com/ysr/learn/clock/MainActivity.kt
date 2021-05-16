@@ -1,5 +1,6 @@
 package com.ysr.learn.clock
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +23,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.activity_main_landscape)
+        } else {
+            setContentView(R.layout.activity_main)
+        }
 
         val hourContents = mutableListOf<String>().apply {
             addAll((1..9).map { i -> i.toString() }.toMutableList())
